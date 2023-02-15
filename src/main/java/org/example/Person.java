@@ -35,7 +35,7 @@ public class Person {
         }
 
 
-        if(gender != "Male" || gender != "Female"){
+        if(!(gender.equals("Male") || gender.equals("Female"))){
             throw new InvalidPropertiesFormatException("Gender can only be Male of Female");
         }else{
             this.gender = gender;
@@ -58,9 +58,11 @@ public class Person {
      * @param persons
      * @return
      */
-    public double[] averageAgePerGender(List<Person> persons){
+    public static double[] averageAgePerGender(List<Person> persons){
 
         double[] res = new double[2];
+        res[0] = 0.0;
+        res[1] = 0.0;
 
         double maleMeanAge = 0;
         double femaleMeanAge = 0;
@@ -76,8 +78,17 @@ public class Person {
                 countFemale++;
             }
         }
-        res[0] = (maleMeanAge/countMale);
-        res[1] = (femaleMeanAge/countFemale);
+        if(countMale == 0){
+            res[0] = 0.0;
+        }else{
+            res[0] = (maleMeanAge/countMale);
+        }
+        if(countFemale == 0){
+            res[1] = 0.0;
+        }else{
+            res[1] = (femaleMeanAge/countFemale);
+        }
+
 
         return res;
     }
