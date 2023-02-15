@@ -57,10 +57,10 @@ public class Person {
         int countFemale = 0;
 
         for (Person p:persons ) {
-            if(p.gender == "Male"){
+            if(p.gender.equalsIgnoreCase("Male")){
                 maleMeanAge += p.age;
                 countMale++;
-            }else if(p.gender == "Female"){
+            }else if(p.gender.equalsIgnoreCase("Female")){
                 femaleMeanAge += p.age;
                 countFemale++;
             }
