@@ -18,4 +18,9 @@ class PersonTest {
     void CreatePersonWithWrongAge(){
         assertThrows(InvalidPropertiesFormatException.class, () -> new Person("Alba",-5,"Female"));
     }
+
+    @Test
+    void CreatePersonWithWrongGender(){
+        assertThrows(InvalidPropertiesFormatException.class, () -> new Person("Lucas",12,"Duck"));
+    }
 }
