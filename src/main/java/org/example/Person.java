@@ -22,8 +22,19 @@ public class Person {
      * @param gender the gender of the person
      */
     public Person(String name, int age, String gender) throws InvalidPropertiesFormatException {
-        this.name = name;
-        this.age = age;
+        if(name == null){
+            throw new InvalidPropertiesFormatException("Name can not be null");
+        }else{
+            this.name = name;
+        }
+
+        if(age < 0 || age > 120){
+            throw new InvalidPropertiesFormatException("Invalid parameter for age");
+        }else{
+            this.age = age;
+        }
+
+
         if(gender != "Male" || gender != "Female"){
             throw new InvalidPropertiesFormatException("Gender can only be Male of Female");
         }else{
